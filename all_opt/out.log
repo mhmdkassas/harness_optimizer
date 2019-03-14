@@ -1,0 +1,732 @@
+Loaded model loadingHarnessModel from file C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers\harnessOptimizers\loadingHarnessModel.osim
+Loaded model loadingHarnessModel from file C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers\harnessOptimizers\copy_loadingHarnessModel.osim
+Running tool .
+No external loads will be applied (external loads file not specified).
+MODEL: loadingHarnessModel
+
+ANALYSES (1)
+analysis[0] = ForceReporter
+
+BODIES (16)
+body[0] = ground (mass: 0) (inertia: 0 0 0 0 0 0 0 0 0)
+body[1] = pelvis (mass: 11.3752) (inertia: 0.104234 0 0 0 0.0883147 0 0 0 0.0587075)
+body[2] = harness_hip (mass: 1) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[3] = femur_r (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[4] = tibia_r (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[5] = talus_r (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[6] = calcn_r (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[7] = toes_r (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[8] = femur_l (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[9] = tibia_l (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[10] = talus_l (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[11] = calcn_l (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[12] = toes_l (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[13] = torso (mass: 33.0685) (inertia: 1.66031 0 0 0 0.850707 0 0 0 1.61178)
+body[14] = harness_shoulder_1 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[15] = harness_shoulder_2 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+
+ACTUATORS (0)
+numStates = 26
+numCoordinates = 13
+numSpeeds = 13
+numActuators = 0
+numBodies = 16
+numConstraints = 0
+numProbes = 0
+
+STATES (26)
+y[0] = pelvis_tilt
+y[1] = pelvis_tx
+y[2] = pelvis_ty
+y[3] = hip_ty
+y[4] = hip_flexion
+y[5] = knee_angle_r
+y[6] = ankle_angle_r
+y[7] = hip_flexion_l
+y[8] = knee_angle_l
+y[9] = ankle_angle_l
+y[10] = lumbar_extension
+y[11] = shoulder1_ty
+y[12] = shoulder2_ty
+y[13] = pelvis_tilt_u
+y[14] = pelvis_tx_u
+y[15] = pelvis_ty_u
+y[16] = hip_ty_u
+y[17] = hip_flexion_u
+y[18] = knee_angle_r_u
+y[19] = ankle_angle_r_u
+y[20] = hip_flexion_l_u
+y[21] = knee_angle_l_u
+y[22] = ankle_angle_l_u
+y[23] = lumbar_extension_u
+y[24] = shoulder1_ty_u
+y[25] = shoulder2_ty_u
+
+
+Integrating from 0 to 3
+Printing results of investigation  to ./.
+Running tool .
+No external loads will be applied (external loads file not specified).
+MODEL: loadingHarnessModel
+
+ANALYSES (1)
+analysis[0] = ForceReporter
+
+BODIES (16)
+body[0] = ground (mass: 0) (inertia: 0 0 0 0 0 0 0 0 0)
+body[1] = pelvis (mass: 11.3752) (inertia: 0.104234 0 0 0 0.0883147 0 0 0 0.0587075)
+body[2] = harness_hip (mass: 1) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[3] = femur_r (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[4] = tibia_r (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[5] = talus_r (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[6] = calcn_r (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[7] = toes_r (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[8] = femur_l (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[9] = tibia_l (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[10] = talus_l (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[11] = calcn_l (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[12] = toes_l (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[13] = torso (mass: 33.0685) (inertia: 1.66031 0 0 0 0.850707 0 0 0 1.61178)
+body[14] = harness_shoulder_1 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[15] = harness_shoulder_2 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+
+ACTUATORS (0)
+numStates = 26
+numCoordinates = 13
+numSpeeds = 13
+numActuators = 0
+numBodies = 16
+numConstraints = 0
+numProbes = 0
+
+STATES (26)
+y[0] = pelvis_tilt
+y[1] = pelvis_tx
+y[2] = pelvis_ty
+y[3] = hip_ty
+y[4] = hip_flexion
+y[5] = knee_angle_r
+y[6] = ankle_angle_r
+y[7] = hip_flexion_l
+y[8] = knee_angle_l
+y[9] = ankle_angle_l
+y[10] = lumbar_extension
+y[11] = shoulder1_ty
+y[12] = shoulder2_ty
+y[13] = pelvis_tilt_u
+y[14] = pelvis_tx_u
+y[15] = pelvis_ty_u
+y[16] = hip_ty_u
+y[17] = hip_flexion_u
+y[18] = knee_angle_r_u
+y[19] = ankle_angle_r_u
+y[20] = hip_flexion_l_u
+y[21] = knee_angle_l_u
+y[22] = ankle_angle_l_u
+y[23] = lumbar_extension_u
+y[24] = shoulder1_ty_u
+y[25] = shoulder2_ty_u
+
+
+Integrating from 0 to 3
+Printing results of investigation  to ./.
+Running tool .
+No external loads will be applied (external loads file not specified).
+MODEL: loadingHarnessModel
+
+ANALYSES (1)
+analysis[0] = ForceReporter
+
+BODIES (16)
+body[0] = ground (mass: 0) (inertia: 0 0 0 0 0 0 0 0 0)
+body[1] = pelvis (mass: 11.3752) (inertia: 0.104234 0 0 0 0.0883147 0 0 0 0.0587075)
+body[2] = harness_hip (mass: 1) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[3] = femur_r (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[4] = tibia_r (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[5] = talus_r (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[6] = calcn_r (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[7] = toes_r (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[8] = femur_l (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[9] = tibia_l (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[10] = talus_l (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[11] = calcn_l (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[12] = toes_l (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[13] = torso (mass: 33.0685) (inertia: 1.66031 0 0 0 0.850707 0 0 0 1.61178)
+body[14] = harness_shoulder_1 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[15] = harness_shoulder_2 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+
+ACTUATORS (0)
+numStates = 26
+numCoordinates = 13
+numSpeeds = 13
+numActuators = 0
+numBodies = 16
+numConstraints = 0
+numProbes = 0
+
+STATES (26)
+y[0] = pelvis_tilt
+y[1] = pelvis_tx
+y[2] = pelvis_ty
+y[3] = hip_ty
+y[4] = hip_flexion
+y[5] = knee_angle_r
+y[6] = ankle_angle_r
+y[7] = hip_flexion_l
+y[8] = knee_angle_l
+y[9] = ankle_angle_l
+y[10] = lumbar_extension
+y[11] = shoulder1_ty
+y[12] = shoulder2_ty
+y[13] = pelvis_tilt_u
+y[14] = pelvis_tx_u
+y[15] = pelvis_ty_u
+y[16] = hip_ty_u
+y[17] = hip_flexion_u
+y[18] = knee_angle_r_u
+y[19] = ankle_angle_r_u
+y[20] = hip_flexion_l_u
+y[21] = knee_angle_l_u
+y[22] = ankle_angle_l_u
+y[23] = lumbar_extension_u
+y[24] = shoulder1_ty_u
+y[25] = shoulder2_ty_u
+
+
+Integrating from 0 to 3
+Printing results of investigation  to ./.
+Running tool .
+No external loads will be applied (external loads file not specified).
+MODEL: loadingHarnessModel
+
+ANALYSES (2)
+analysis[0] = ForceReporter
+analysis[1] = ForceReporter
+
+BODIES (16)
+body[0] = ground (mass: 0) (inertia: 0 0 0 0 0 0 0 0 0)
+body[1] = pelvis (mass: 11.3752) (inertia: 0.104234 0 0 0 0.0883147 0 0 0 0.0587075)
+body[2] = harness_hip (mass: 1) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[3] = femur_r (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[4] = tibia_r (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[5] = talus_r (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[6] = calcn_r (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[7] = toes_r (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[8] = femur_l (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[9] = tibia_l (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[10] = talus_l (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[11] = calcn_l (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[12] = toes_l (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[13] = torso (mass: 33.0685) (inertia: 1.66031 0 0 0 0.850707 0 0 0 1.61178)
+body[14] = harness_shoulder_1 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[15] = harness_shoulder_2 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+
+ACTUATORS (0)
+numStates = 26
+numCoordinates = 13
+numSpeeds = 13
+numActuators = 0
+numBodies = 16
+numConstraints = 0
+numProbes = 0
+
+STATES (26)
+y[0] = pelvis_tilt
+y[1] = pelvis_tx
+y[2] = pelvis_ty
+y[3] = hip_ty
+y[4] = hip_flexion
+y[5] = knee_angle_r
+y[6] = ankle_angle_r
+y[7] = hip_flexion_l
+y[8] = knee_angle_l
+y[9] = ankle_angle_l
+y[10] = lumbar_extension
+y[11] = shoulder1_ty
+y[12] = shoulder2_ty
+y[13] = pelvis_tilt_u
+y[14] = pelvis_tx_u
+y[15] = pelvis_ty_u
+y[16] = hip_ty_u
+y[17] = hip_flexion_u
+y[18] = knee_angle_r_u
+y[19] = ankle_angle_r_u
+y[20] = hip_flexion_l_u
+y[21] = knee_angle_l_u
+y[22] = ankle_angle_l_u
+y[23] = lumbar_extension_u
+y[24] = shoulder1_ty_u
+y[25] = shoulder2_ty_u
+
+
+Integrating from 0 to 3
+Printing results of investigation  to ./.
+Running tool .
+No external loads will be applied (external loads file not specified).
+MODEL: loadingHarnessModel
+
+ANALYSES (2)
+analysis[0] = ForceReporter
+analysis[1] = ForceReporter
+
+BODIES (16)
+body[0] = ground (mass: 0) (inertia: 0 0 0 0 0 0 0 0 0)
+body[1] = pelvis (mass: 11.3752) (inertia: 0.104234 0 0 0 0.0883147 0 0 0 0.0587075)
+body[2] = harness_hip (mass: 1) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[3] = femur_r (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[4] = tibia_r (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[5] = talus_r (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[6] = calcn_r (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[7] = toes_r (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[8] = femur_l (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[9] = tibia_l (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[10] = talus_l (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[11] = calcn_l (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[12] = toes_l (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[13] = torso (mass: 33.0685) (inertia: 1.66031 0 0 0 0.850707 0 0 0 1.61178)
+body[14] = harness_shoulder_1 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[15] = harness_shoulder_2 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+
+ACTUATORS (0)
+numStates = 26
+numCoordinates = 13
+numSpeeds = 13
+numActuators = 0
+numBodies = 16
+numConstraints = 0
+numProbes = 0
+
+STATES (26)
+y[0] = pelvis_tilt
+y[1] = pelvis_tx
+y[2] = pelvis_ty
+y[3] = hip_ty
+y[4] = hip_flexion
+y[5] = knee_angle_r
+y[6] = ankle_angle_r
+y[7] = hip_flexion_l
+y[8] = knee_angle_l
+y[9] = ankle_angle_l
+y[10] = lumbar_extension
+y[11] = shoulder1_ty
+y[12] = shoulder2_ty
+y[13] = pelvis_tilt_u
+y[14] = pelvis_tx_u
+y[15] = pelvis_ty_u
+y[16] = hip_ty_u
+y[17] = hip_flexion_u
+y[18] = knee_angle_r_u
+y[19] = ankle_angle_r_u
+y[20] = hip_flexion_l_u
+y[21] = knee_angle_l_u
+y[22] = ankle_angle_l_u
+y[23] = lumbar_extension_u
+y[24] = shoulder1_ty_u
+y[25] = shoulder2_ty_u
+
+
+Integrating from 0 to 3
+Printing results of investigation  to ./.
+Running tool .
+No external loads will be applied (external loads file not specified).
+MODEL: loadingHarnessModel
+
+ANALYSES (2)
+analysis[0] = ForceReporter
+analysis[1] = ForceReporter
+
+BODIES (16)
+body[0] = ground (mass: 0) (inertia: 0 0 0 0 0 0 0 0 0)
+body[1] = pelvis (mass: 11.3752) (inertia: 0.104234 0 0 0 0.0883147 0 0 0 0.0587075)
+body[2] = harness_hip (mass: 1) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[3] = femur_r (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[4] = tibia_r (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[5] = talus_r (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[6] = calcn_r (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[7] = toes_r (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[8] = femur_l (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[9] = tibia_l (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[10] = talus_l (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[11] = calcn_l (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[12] = toes_l (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[13] = torso (mass: 33.0685) (inertia: 1.66031 0 0 0 0.850707 0 0 0 1.61178)
+body[14] = harness_shoulder_1 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[15] = harness_shoulder_2 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+
+ACTUATORS (0)
+numStates = 26
+numCoordinates = 13
+numSpeeds = 13
+numActuators = 0
+numBodies = 16
+numConstraints = 0
+numProbes = 0
+
+STATES (26)
+y[0] = pelvis_tilt
+y[1] = pelvis_tx
+y[2] = pelvis_ty
+y[3] = hip_ty
+y[4] = hip_flexion
+y[5] = knee_angle_r
+y[6] = ankle_angle_r
+y[7] = hip_flexion_l
+y[8] = knee_angle_l
+y[9] = ankle_angle_l
+y[10] = lumbar_extension
+y[11] = shoulder1_ty
+y[12] = shoulder2_ty
+y[13] = pelvis_tilt_u
+y[14] = pelvis_tx_u
+y[15] = pelvis_ty_u
+y[16] = hip_ty_u
+y[17] = hip_flexion_u
+y[18] = knee_angle_r_u
+y[19] = ankle_angle_r_u
+y[20] = hip_flexion_l_u
+y[21] = knee_angle_l_u
+y[22] = ankle_angle_l_u
+y[23] = lumbar_extension_u
+y[24] = shoulder1_ty_u
+y[25] = shoulder2_ty_u
+
+
+Integrating from 0 to 3
+Printing results of investigation  to ./.
+Running tool .
+No external loads will be applied (external loads file not specified).
+MODEL: loadingHarnessModel
+
+ANALYSES (3)
+analysis[0] = ForceReporter
+analysis[1] = ForceReporter
+analysis[2] = ForceReporter
+
+BODIES (16)
+body[0] = ground (mass: 0) (inertia: 0 0 0 0 0 0 0 0 0)
+body[1] = pelvis (mass: 11.3752) (inertia: 0.104234 0 0 0 0.0883147 0 0 0 0.0587075)
+body[2] = harness_hip (mass: 1) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[3] = femur_r (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[4] = tibia_r (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[5] = talus_r (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[6] = calcn_r (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[7] = toes_r (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[8] = femur_l (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[9] = tibia_l (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[10] = talus_l (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[11] = calcn_l (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[12] = toes_l (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[13] = torso (mass: 33.0685) (inertia: 1.66031 0 0 0 0.850707 0 0 0 1.61178)
+body[14] = harness_shoulder_1 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[15] = harness_shoulder_2 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+
+ACTUATORS (0)
+numStates = 26
+numCoordinates = 13
+numSpeeds = 13
+numActuators = 0
+numBodies = 16
+numConstraints = 0
+numProbes = 0
+
+STATES (26)
+y[0] = pelvis_tilt
+y[1] = pelvis_tx
+y[2] = pelvis_ty
+y[3] = hip_ty
+y[4] = hip_flexion
+y[5] = knee_angle_r
+y[6] = ankle_angle_r
+y[7] = hip_flexion_l
+y[8] = knee_angle_l
+y[9] = ankle_angle_l
+y[10] = lumbar_extension
+y[11] = shoulder1_ty
+y[12] = shoulder2_ty
+y[13] = pelvis_tilt_u
+y[14] = pelvis_tx_u
+y[15] = pelvis_ty_u
+y[16] = hip_ty_u
+y[17] = hip_flexion_u
+y[18] = knee_angle_r_u
+y[19] = ankle_angle_r_u
+y[20] = hip_flexion_l_u
+y[21] = knee_angle_l_u
+y[22] = ankle_angle_l_u
+y[23] = lumbar_extension_u
+y[24] = shoulder1_ty_u
+y[25] = shoulder2_ty_u
+
+
+Integrating from 0 to 3
+Printing results of investigation  to ./.
+Running tool .
+No external loads will be applied (external loads file not specified).
+MODEL: loadingHarnessModel
+
+ANALYSES (3)
+analysis[0] = ForceReporter
+analysis[1] = ForceReporter
+analysis[2] = ForceReporter
+
+BODIES (16)
+body[0] = ground (mass: 0) (inertia: 0 0 0 0 0 0 0 0 0)
+body[1] = pelvis (mass: 11.3752) (inertia: 0.104234 0 0 0 0.0883147 0 0 0 0.0587075)
+body[2] = harness_hip (mass: 1) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[3] = femur_r (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[4] = tibia_r (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[5] = talus_r (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[6] = calcn_r (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[7] = toes_r (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[8] = femur_l (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[9] = tibia_l (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[10] = talus_l (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[11] = calcn_l (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[12] = toes_l (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[13] = torso (mass: 33.0685) (inertia: 1.66031 0 0 0 0.850707 0 0 0 1.61178)
+body[14] = harness_shoulder_1 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[15] = harness_shoulder_2 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+
+ACTUATORS (0)
+numStates = 26
+numCoordinates = 13
+numSpeeds = 13
+numActuators = 0
+numBodies = 16
+numConstraints = 0
+numProbes = 0
+
+STATES (26)
+y[0] = pelvis_tilt
+y[1] = pelvis_tx
+y[2] = pelvis_ty
+y[3] = hip_ty
+y[4] = hip_flexion
+y[5] = knee_angle_r
+y[6] = ankle_angle_r
+y[7] = hip_flexion_l
+y[8] = knee_angle_l
+y[9] = ankle_angle_l
+y[10] = lumbar_extension
+y[11] = shoulder1_ty
+y[12] = shoulder2_ty
+y[13] = pelvis_tilt_u
+y[14] = pelvis_tx_u
+y[15] = pelvis_ty_u
+y[16] = hip_ty_u
+y[17] = hip_flexion_u
+y[18] = knee_angle_r_u
+y[19] = ankle_angle_r_u
+y[20] = hip_flexion_l_u
+y[21] = knee_angle_l_u
+y[22] = ankle_angle_l_u
+y[23] = lumbar_extension_u
+y[24] = shoulder1_ty_u
+y[25] = shoulder2_ty_u
+
+
+Integrating from 0 to 3
+Printing results of investigation  to ./.
+Running tool .
+No external loads will be applied (external loads file not specified).
+MODEL: loadingHarnessModel
+
+ANALYSES (3)
+analysis[0] = ForceReporter
+analysis[1] = ForceReporter
+analysis[2] = ForceReporter
+
+BODIES (16)
+body[0] = ground (mass: 0) (inertia: 0 0 0 0 0 0 0 0 0)
+body[1] = pelvis (mass: 11.3752) (inertia: 0.104234 0 0 0 0.0883147 0 0 0 0.0587075)
+body[2] = harness_hip (mass: 1) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[3] = femur_r (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[4] = tibia_r (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[5] = talus_r (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[6] = calcn_r (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[7] = toes_r (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[8] = femur_l (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[9] = tibia_l (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[10] = talus_l (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[11] = calcn_l (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[12] = toes_l (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[13] = torso (mass: 33.0685) (inertia: 1.66031 0 0 0 0.850707 0 0 0 1.61178)
+body[14] = harness_shoulder_1 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[15] = harness_shoulder_2 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+
+ACTUATORS (0)
+numStates = 26
+numCoordinates = 13
+numSpeeds = 13
+numActuators = 0
+numBodies = 16
+numConstraints = 0
+numProbes = 0
+
+STATES (26)
+y[0] = pelvis_tilt
+y[1] = pelvis_tx
+y[2] = pelvis_ty
+y[3] = hip_ty
+y[4] = hip_flexion
+y[5] = knee_angle_r
+y[6] = ankle_angle_r
+y[7] = hip_flexion_l
+y[8] = knee_angle_l
+y[9] = ankle_angle_l
+y[10] = lumbar_extension
+y[11] = shoulder1_ty
+y[12] = shoulder2_ty
+y[13] = pelvis_tilt_u
+y[14] = pelvis_tx_u
+y[15] = pelvis_ty_u
+y[16] = hip_ty_u
+y[17] = hip_flexion_u
+y[18] = knee_angle_r_u
+y[19] = ankle_angle_r_u
+y[20] = hip_flexion_l_u
+y[21] = knee_angle_l_u
+y[22] = ankle_angle_l_u
+y[23] = lumbar_extension_u
+y[24] = shoulder1_ty_u
+y[25] = shoulder2_ty_u
+
+
+Integrating from 0 to 3
+Printing results of investigation  to ./.
+Running tool .
+No external loads will be applied (external loads file not specified).
+MODEL: loadingHarnessModel
+
+ANALYSES (4)
+analysis[0] = ForceReporter
+analysis[1] = ForceReporter
+analysis[2] = ForceReporter
+analysis[3] = ForceReporter
+
+BODIES (16)
+body[0] = ground (mass: 0) (inertia: 0 0 0 0 0 0 0 0 0)
+body[1] = pelvis (mass: 11.3752) (inertia: 0.104234 0 0 0 0.0883147 0 0 0 0.0587075)
+body[2] = harness_hip (mass: 1) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[3] = femur_r (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[4] = tibia_r (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[5] = talus_r (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[6] = calcn_r (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[7] = toes_r (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[8] = femur_l (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[9] = tibia_l (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[10] = talus_l (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[11] = calcn_l (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[12] = toes_l (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[13] = torso (mass: 33.0685) (inertia: 1.66031 0 0 0 0.850707 0 0 0 1.61178)
+body[14] = harness_shoulder_1 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[15] = harness_shoulder_2 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+
+ACTUATORS (0)
+numStates = 26
+numCoordinates = 13
+numSpeeds = 13
+numActuators = 0
+numBodies = 16
+numConstraints = 0
+numProbes = 0
+
+STATES (26)
+y[0] = pelvis_tilt
+y[1] = pelvis_tx
+y[2] = pelvis_ty
+y[3] = hip_ty
+y[4] = hip_flexion
+y[5] = knee_angle_r
+y[6] = ankle_angle_r
+y[7] = hip_flexion_l
+y[8] = knee_angle_l
+y[9] = ankle_angle_l
+y[10] = lumbar_extension
+y[11] = shoulder1_ty
+y[12] = shoulder2_ty
+y[13] = pelvis_tilt_u
+y[14] = pelvis_tx_u
+y[15] = pelvis_ty_u
+y[16] = hip_ty_u
+y[17] = hip_flexion_u
+y[18] = knee_angle_r_u
+y[19] = ankle_angle_r_u
+y[20] = hip_flexion_l_u
+y[21] = knee_angle_l_u
+y[22] = ankle_angle_l_u
+y[23] = lumbar_extension_u
+y[24] = shoulder1_ty_u
+y[25] = shoulder2_ty_u
+
+
+Integrating from 0 to 3
+Printing results of investigation  to ./.
+Running tool .
+No external loads will be applied (external loads file not specified).
+MODEL: loadingHarnessModel
+
+ANALYSES (4)
+analysis[0] = ForceReporter
+analysis[1] = ForceReporter
+analysis[2] = ForceReporter
+analysis[3] = ForceReporter
+
+BODIES (16)
+body[0] = ground (mass: 0) (inertia: 0 0 0 0 0 0 0 0 0)
+body[1] = pelvis (mass: 11.3752) (inertia: 0.104234 0 0 0 0.0883147 0 0 0 0.0587075)
+body[2] = harness_hip (mass: 1) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[3] = femur_r (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[4] = tibia_r (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[5] = talus_r (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[6] = calcn_r (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[7] = toes_r (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[8] = femur_l (mass: 8.98404) (inertia: 0.170221 0 0 0 0.044621 0 0 0 0.179501)
+body[9] = tibia_l (mass: 3.581) (inertia: 0.0475694 0 0 0 0.00481357 0 0 0 0.0482301)
+body[10] = talus_l (mass: 0.096588) (inertia: 0.00119861 0 0 0 0.00119861 0 0 0 0.00119861)
+body[11] = calcn_l (mass: 1.20735) (inertia: 0.00142646 0 0 0 0.00397371 0 0 0 0.00417749)
+body[12] = toes_l (mass: 0.20921) (inertia: 0.00010189 0 0 0 0.00020378 0 0 0 0.00010189)
+body[13] = torso (mass: 33.0685) (inertia: 1.66031 0 0 0 0.850707 0 0 0 1.61178)
+body[14] = harness_shoulder_1 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+body[15] = harness_shoulder_2 (mass: 0.001) (inertia: 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006 1e-006)
+
+ACTUATORS (0)
+numStates = 26
+numCoordinates = 13
+numSpeeds = 13
+numActuators = 0
+numBodies = 16
+numConstraints = 0
+numProbes = 0
+
+STATES (26)
+y[0] = pelvis_tilt
+y[1] = pelvis_tx
+y[2] = pelvis_ty
+y[3] = hip_ty
+y[4] = hip_flexion
+y[5] = knee_angle_r
+y[6] = ankle_angle_r
+y[7] = hip_flexion_l
+y[8] = knee_angle_l
+y[9] = ankle_angle_l
+y[10] = lumbar_extension
+y[11] = shoulder1_ty
+y[12] = shoulder2_ty
+y[13] = pelvis_tilt_u
+y[14] = pelvis_tx_u
+y[15] = pelvis_ty_u
+y[16] = hip_ty_u
+y[17] = hip_flexion_u
+y[18] = knee_angle_r_u
+y[19] = ankle_angle_r_u
+y[20] = hip_flexion_l_u
+y[21] = knee_angle_l_u
+y[22] = ankle_angle_l_u
+y[23] = lumbar_extension_u
+y[24] = shoulder1_ty_u
+y[25] = shoulder2_ty_u
+
+
+Integrating from 0 to 3
+Printing results of investigation  to ./.
