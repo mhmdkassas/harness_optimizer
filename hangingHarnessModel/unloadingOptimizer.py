@@ -10,9 +10,9 @@ import math
 from scipy.optimize import minimize
 
 
-model = osim.Model("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers\hangingHarnessModel\hangingHarnessModel.osim")
-model.printToXML("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers\hangingHarnessModel\copy_hangingHarnessModel.osim")
-copy = osim.Model("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers\hangingHarnessModel\copy_hangingHarnessModel.osim")
+model = osim.Model("\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\hangingHarnessModel\hangingHarnessModel.osim")
+model.printToXML("\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\hangingHarnessModel\copy_hangingHarnessModel.osim")
+copy = osim.Model("\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\hangingHarnessModel\copy_hangingHarnessModel.osim")
 frcSet = copy.getForceSet()
 
 #all the indices representing the individual forces are
@@ -188,7 +188,7 @@ def optimizer_callBack(x):
     point_start_l.setLocation(copy.initSystem(), vecLs)
     point_end_l.setLocation(copy.initSystem(), vecLe)
     
-    copy.printToXML("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers\hangingHarnessModel\copy_hangingHarnessModel.osim")
+    copy.printToXML("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\hangingHarnessModel\copy_hangingHarnessModel.osim")
     
     fwd_tool.run()
     
@@ -197,9 +197,6 @@ def optimizer_callBack(x):
     dataSet = stateVec.getData()
     force1 = dataSet.get(3)
     force2 = dataSet.get(5)
-    
-    print(force1)
-    print(force2)
     
     return  (math.floor(float(force1))-math.floor(float(force2)))**2 
 

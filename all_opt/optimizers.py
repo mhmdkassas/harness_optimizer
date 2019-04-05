@@ -19,11 +19,11 @@ LOADING_FLAG = 1
 flag_model = LOADING_FLAG
 
 #TODO: ensure correct path for your files
-unloading_path = "C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\harnessOptimizers\hangingHarnessModel.osim"
-unloading_copy_path = "C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\harnessOptimizers\copy_hangingHarnessModel.osim"
+unloading_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/hangingHarnessModel_lim_hip.osim"
+unloading_copy_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/copy_hangingHarnessModel_lim_hip.osim"
 
-loading_path = "C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\harnessOptimizers\loadingHarnessModel.osim"
-loading_copy_path = "C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\harnessOptimizers\copy_loadingHarnessModel.osim"
+loading_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/loadingHarnessModel.osim"
+loading_copy_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/copy_loadingHarnessModel.osim"
 
 #loads the correct model according to flag
 if flag_model == UNLOADING_FLAG:

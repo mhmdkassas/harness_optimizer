@@ -143,17 +143,4 @@ copy.printToXML("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers\
     
 fwd_tool.run()
 
-opener = open("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers\loadingHarnessModel\_ForceReporter_forces.sto")
-lst = opener.readlines()
-temp = re.split("\t", lst[-1])
-rawTime = temp[0]
-rawExternalTension = temp [1]
-rawforceS = temp[2]
-rawforce1 = temp [4]
-rawforce2 = temp[6]
 
-time = rawTime.strip("' , \n\t")
-external_tension = rawExternalTension.strip("' , \n\t")
-forceS = rawforceS.strip("' , \n\t")
-force1 = rawforce1.strip("' , \n\t")
-force2 = rawforce2.strip("' , \n\t")

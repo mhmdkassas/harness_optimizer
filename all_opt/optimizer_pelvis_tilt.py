@@ -15,14 +15,14 @@ UNLOADING_FLAG = 0
 LOADING_FLAG = 1
 
 #CHOOSE LOADING OR UNLOADING
-flag_model = LOADING_FLAG
+flag_model = UNLOADING_FLAG
 
 #TODO: ensure correct path for your files
-unloading_path = "C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers\harnessOptimizers\hangingHarnessModel.osim"
-unloading_copy_path = "C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\harnessOptimizers\copy_hangingHarnessModel.osim"
+unloading_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/hangingHarnessModel_lim_hip.osim"
+unloading_copy_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/copy_hangingHarnessModel_lim_hip.osim"
 
-loading_path = "C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers\harnessOptimizers\loadingHarnessModel.osim"
-loading_copy_path = "C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers\harnessOptimizers\copy_loadingHarnessModel.osim"
+loading_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/loadingHarnessModel.osim"
+loading_copy_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/copy_loadingHarnessModel.osim"
 
 
 #loads the correct model according to flag
@@ -86,6 +86,7 @@ def optimizer_callBack(x):
         force2 = dataSet.get(5)
         
         forces[i] = (force1, force2)
+        
     return (forces[0][0] - forces[0][1])**2 + (forces[1][0] - forces[1][1])**2 + (forces[2][0] - forces[2][1])**2 
     
 def main():
