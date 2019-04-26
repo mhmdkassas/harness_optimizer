@@ -22,8 +22,8 @@ flag_model = LOADING_FLAG
 unloading_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/hangingHarnessModel_lim_hip.osim"
 unloading_copy_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/copy_hangingHarnessModel_lim_hip.osim"
 
-loading_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/loadingHarnessModel.osim"
-loading_copy_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/copy_loadingHarnessModel.osim"
+loading_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/loadingHarnessModel_lim_hip.osim"
+loading_copy_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/copy_loadingHarnessModel_lim_hip.osim"
 
 #loads the correct model according to flag
 if flag_model == UNLOADING_FLAG:

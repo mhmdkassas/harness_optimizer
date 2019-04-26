@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Jan 30 16:20:20 2019
+Created on Tue Apr 23 13:32:39 2019
 
 @author: mhmdk
 """
@@ -9,10 +9,9 @@ import opensim as osim
 import math
 from scipy.optimize import minimize
 
-
-model = osim.Model("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\loadingHarnessModel\loadingHarnessModel.osim")
-model.printToXML("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\loadingHarnessModel\copy_loadingHarnessModel.osim")
-copy = osim.Model("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\loadingHarnessModel\copy_loadingHarnessModel.osim")
+model = osim.Model("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\loadingHarnessModel\loadingHarnessModel_limitedHip.osim")
+model.printToXML("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\loadingHarnessModel\copy_loadingHarnessModel_limitedHip.osim")
+copy = osim.Model("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\loadingHarnessModel\copy_loadingHarnessModel_limitedHip.osim")
 frcSet = copy.getForceSet()
 
 def external_tension(num):
@@ -181,7 +180,7 @@ def optimizer_callBack(x):
     point_start_l.setLocation(copy.initSystem(), vecLs)
     point_end_l.setLocation(copy.initSystem(), vecLe)
     
-    copy.printToXML("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\loadingHarnessModel\copy_loadingHarnessModel.osim")
+    copy.printToXML("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\loadingHarnessModel\copy_loadingHarnessModel_limitedHip.osim")
     
     fwd_tool.run()
     
@@ -190,8 +189,9 @@ def optimizer_callBack(x):
     dataSet = stateVec.getData()
     force1 = dataSet.get(4)
     force2 = dataSet.get(6)
+    force3 = dataSet.get(8)
     
-    return ( (math.floor(float(force1))-math.floor(float(force2)))**2 )
+    return  (math.floor(float(force1))-math.floor(float(force2)))**2 + force3**2
 
 def main():
     x0 = [45]

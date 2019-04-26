@@ -21,8 +21,8 @@ flag_model = UNLOADING_FLAG
 unloading_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/hangingHarnessModel_lim_hip.osim"
 unloading_copy_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/copy_hangingHarnessModel_lim_hip.osim"
 
-loading_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/loadingHarnessModel.osim"
-loading_copy_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/copy_loadingHarnessModel.osim"
+loading_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/loadingHarnessModel_lim_hip.osim"
+loading_copy_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/copy_loadingHarnessModel_lim_hip.osim"
 
 
 #loads the correct model according to flag
@@ -82,8 +82,8 @@ def optimizer_callBack(x):
         storage = reporter.getForceStorage()
         stateVec = storage.getLastStateVector()
         dataSet = stateVec.getData()
-        force1 = dataSet.get(3)
-        force2 = dataSet.get(5)
+        force1 = dataSet.get(4)
+        force2 = dataSet.get(6)
         
         forces[i] = (force1, force2)
         

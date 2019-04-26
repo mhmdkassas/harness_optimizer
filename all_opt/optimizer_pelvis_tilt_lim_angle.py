@@ -207,8 +207,8 @@ def optimizer_callBack(x):
         storage = reporter.getForceStorage()
         stateVec = storage.getLastStateVector()
         dataSet = stateVec.getData()
-        force1 = dataSet.get(3)
-        force2 = dataSet.get(5)
+        force1 = dataSet.get(4)
+        force2 = dataSet.get(6)
         force3 = dataSet.get(8)
         
         forces[i] = (force1, force2)

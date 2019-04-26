@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <OpenSimDocument Version="30000">
-	<Model name="hangingHarnessModel">
+	<Model name="unloadingHarnessModel">
 		<credits>A planar reduced gait model with 10 degrees of freedom and 18 muscles by Ajay Seth. Closely based on Delp S.L., Loan J.P., Hoy M.G., Zajac F.E., Topp E.L., Rosen J.M., Thelen D.G., Anderson F.C., Seth A. Notes: 3D, 23 DOF gait model created by D.G. Thelen, Univ. of Wisconsin-Madison, and Ajay Seth, Frank C. Anderson, and Scott L. Delp, Stanford University. Lower extremity joint defintions based on Delp et al. (1990). Low back joint and anthropometry based on Anderson and Pandy (1999, 2001). Planar knee model of Yamaguchi and Zajac (1989). Seth replaced tibia translation constraints with a CustomJoint for the knee and removed the patella to eliminate all kinematic constraints; insertions of the quadrucepts are handled with moving points in the tibia frame as defined by Delp 1990. Number of muscles was reduced by Anderson to improve simulation speed for demonstrations and is not intended to be used in research. License: Creative Commons (CCBY 3.0). You are free to distribute, remix, tweak, and build upon this work, even commercially, as long as you credit us for the original creation. http://creativecommons.org/licenses/by/3.0/ More Information: http://simtk-confluence.stanford.edu:8080/display/OpenSim/Gait+2392+and+2354+Models</credits>
 		<publications>Delp, S.L., Loan, J.P., Hoy, M.G., Zajac, F.E., Topp E.L., Rosen, J.M.: An interactive graphics-based model of the lower extremity to study orthopaedic surgical procedures, IEEE Transactions on Biomedical Engineering, vol. 37, pp. 757-767, 1990. Yamaguchi G.T., Zajac F.E.: A planar model of the knee joint to characterize the knee extensor mechanism." J . Biomech. vol. 22. pp. 1-10. 1989. Anderson F.C., Pandy M.G.: A dynamic optimization solution for vertical jumping in three dimensions. Computer Methods in Biomechanics and Biomedical Engineering 2:201-231, 1999. Anderson F.C., Pandy M.G.: Dynamic optimization of human walking. Journal of Biomechanical Engineering 123:381-390, 2001.</publications>
 		<length_units>meters</length_units>
 		<force_units>N</force_units>
 		<!--Acceleration due to gravity.-->
-		<gravity> 0 -9.80665 0</gravity>
+		<gravity> 0 9.80665 0</gravity>
 		<!--Bodies in the model.-->
 		<BodySet>
 			<objects>
@@ -32,7 +32,7 @@
 						<!--transform relative to owner specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
 						<transform> -0 0 -0 0 0 0</transform>
 						<!--Whether to show a coordinate frame-->
-						<show_axes>true</show_axes>
+						<show_axes>false</show_axes>
 						<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
 						<display_preference>4</display_preference>
 					</VisibleObject>
@@ -70,7 +70,7 @@
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
-										<default_value>0.261799387799149</default_value>
+										<default_value>0</default_value>
 										<!--The speed value of this coordinate before any value has been set. Rotational coordinate value is in rad/s and Translational in m/s.-->
 										<default_speed_value>0</default_speed_value>
 										<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
@@ -106,7 +106,7 @@
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>translational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
-										<default_value>0</default_value>
+										<default_value>-3.41845909832752e-013</default_value>
 										<!--The speed value of this coordinate before any value has been set. Rotational coordinate value is in rad/s and Translational in m/s.-->
 										<default_speed_value>0</default_speed_value>
 										<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
@@ -269,7 +269,7 @@
 						<!--transform relative to owner specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
 						<transform> -0 0 -0 0 0 0</transform>
 						<!--Whether to show a coordinate frame-->
-						<show_axes>true</show_axes>
+						<show_axes>false</show_axes>
 						<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
 						<display_preference>4</display_preference>
 					</VisibleObject>
@@ -289,38 +289,20 @@
 					<inertia_yz>1e-006</inertia_yz>
 					<!--Joint that connects this body with the parent body.-->
 					<Joint>
-						<CustomJoint name="harness_hip_joint">
+						<SliderJoint>
 							<!--Name of the parent body to which this joint connects its owner body.-->
 							<parent_body>pelvis</parent_body>
 							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
 							<location_in_parent>-0.13 0.15 0</location_in_parent>
 							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
-							<orientation_in_parent>0 0 0</orientation_in_parent>
+							<orientation_in_parent>0 0 1.5707963267949</orientation_in_parent>
 							<!--Location of the joint in the child body specified in the child reference frame. For SIMM models, this vector is always the zero vector (i.e., the body reference frame coincides with the joint). -->
 							<location>0 0 0</location>
 							<!--Orientation of the joint in the owing body specified in the owning body reference frame.  Euler XYZ body-fixed rotation angles are used to express the orientation. -->
-							<orientation>0 0 0</orientation>
+							<orientation>0 0 1.5707963267949</orientation>
 							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
 							<CoordinateSet>
 								<objects>
-									<Coordinate name="hip_tx">
-										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
-										<motion_type>translational</motion_type>
-										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
-										<default_value>0</default_value>
-										<!--The speed value of this coordinate before any value has been set. Rotational coordinate value is in rad/s and Translational in m/s.-->
-										<default_speed_value>0</default_speed_value>
-										<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
-										<range>-5 5</range>
-										<!--Flag indicating whether or not the values of the coordinates should be limited to the range, above.-->
-										<clamped>false</clamped>
-										<!--Flag indicating whether or not the values of the coordinates should be constrained to the current (e.g. default) value, above.-->
-										<locked>false</locked>
-										<!--If specified, the coordinate can be prescribed by a function of time. It can be any OpenSim Function with valid second order derivatives.-->
-										<prescribed_function />
-										<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
-										<prescribed>false</prescribed>
-									</Coordinate>
 									<Coordinate name="hip_ty">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>translational</motion_type>
@@ -329,7 +311,7 @@
 										<!--The speed value of this coordinate before any value has been set. Rotational coordinate value is in rad/s and Translational in m/s.-->
 										<default_speed_value>0</default_speed_value>
 										<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
-										<range>-1 2</range>
+										<range>-10 10</range>
 										<!--Flag indicating whether or not the values of the coordinates should be limited to the range, above.-->
 										<clamped>false</clamped>
 										<!--Flag indicating whether or not the values of the coordinates should be constrained to the current (e.g. default) value, above.-->
@@ -338,95 +320,15 @@
 										<prescribed_function />
 										<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
 										<prescribed>false</prescribed>
+										<!--Flag identifies whether or not this coordinate can change freely when posing the model to satisfy kinematic constraints.  When true, the coordinate's initial or specified value is ignored when considering constraints. This allows values for important coordinates, which have this flag set to false, to dictate the value of unimportant coordinates if they are linked via constraints.-->
+										<is_free_to_satisfy_constraints>false</is_free_to_satisfy_constraints>
 									</Coordinate>
 								</objects>
 								<groups />
 							</CoordinateSet>
 							<!--Whether the joint transform defines parent->child or child->parent.-->
 							<reverse>false</reverse>
-							<!--Defines how the child body moves with respect to the parent as a function of the generalized coordinates.-->
-							<SpatialTransform>
-								<!--3 Axes for rotations are listed first.-->
-								<TransformAxis name="rotation1">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates></coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>0 0 1</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<Constant>
-											<value>0</value>
-										</Constant>
-									</function>
-								</TransformAxis>
-								<TransformAxis name="rotation2">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates></coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>1 0 0</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<Constant>
-											<value>0</value>
-										</Constant>
-									</function>
-								</TransformAxis>
-								<TransformAxis name="rotation3">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates></coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>0 1 0</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<Constant>
-											<value>0</value>
-										</Constant>
-									</function>
-								</TransformAxis>
-								<!--3 Axes for translations are listed next.-->
-								<TransformAxis name="translation1">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>hip_tx</coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>1 0 0</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<LinearFunction>
-											<coefficients> 1 0</coefficients>
-										</LinearFunction>
-									</function>
-								</TransformAxis>
-								<TransformAxis name="translation2">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>hip_ty</coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>0 1 0</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<LinearFunction>
-											<coefficients> 1 0</coefficients>
-										</LinearFunction>
-									</function>
-								</TransformAxis>
-								<TransformAxis name="translation3">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates></coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>0 0 1</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<MultiplierFunction>
-											<function>
-												<Constant>
-													<value>0</value>
-												</Constant>
-											</function>
-											<scale>1</scale>
-										</MultiplierFunction>
-									</function>
-								</TransformAxis>
-							</SpatialTransform>
-						</CustomJoint>
+						</SliderJoint>
 					</Joint>
 					<VisibleObject>
 						<!--Set of geometry files and associated attributes, allow .vtp, .stl, .obj-->
@@ -486,7 +388,7 @@
 							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
 							<CoordinateSet>
 								<objects>
-									<Coordinate name="hip_flexion_r">
+									<Coordinate name="hip_flexion">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -548,189 +450,6 @@
 						<groups />
 					</WrapObjectSet>
 				</Body>
-				<Body name="harness_leg_r">
-					<mass>0.001</mass>
-					<mass_center> -0.0724378 0 0</mass_center>
-					<inertia_xx>1e-006</inertia_xx>
-					<inertia_yy>1e-006</inertia_yy>
-					<inertia_zz>1e-006</inertia_zz>
-					<inertia_xy>1e-006</inertia_xy>
-					<inertia_xz>1e-006</inertia_xz>
-					<inertia_yz>1e-006</inertia_yz>
-					<!--Joint that connects this body with the parent body.-->
-					<Joint>
-						<CustomJoint name="harness_legR_joint">
-							<!--Name of the parent body to which this joint connects its owner body.-->
-							<parent_body>femur_r</parent_body>
-							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
-							<location_in_parent>0.01 -0.2 0.05</location_in_parent>
-							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
-							<orientation_in_parent>0 0 0</orientation_in_parent>
-							<!--Location of the joint in the child body specified in the child reference frame. For SIMM models, this vector is always the zero vector (i.e., the body reference frame coincides with the joint). -->
-							<location>0 0 0</location>
-							<!--Orientation of the joint in the owing body specified in the owning body reference frame.  Euler XYZ body-fixed rotation angles are used to express the orientation. -->
-							<orientation>0 0 0</orientation>
-							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
-							<CoordinateSet>
-								<objects>
-									<Coordinate name="legR_tx">
-										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
-										<motion_type>translational</motion_type>
-										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
-										<default_value>0</default_value>
-										<!--The speed value of this coordinate before any value has been set. Rotational coordinate value is in rad/s and Translational in m/s.-->
-										<default_speed_value>0</default_speed_value>
-										<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
-										<range>-5 5</range>
-										<!--Flag indicating whether or not the values of the coordinates should be limited to the range, above.-->
-										<clamped>false</clamped>
-										<!--Flag indicating whether or not the values of the coordinates should be constrained to the current (e.g. default) value, above.-->
-										<locked>false</locked>
-										<!--If specified, the coordinate can be prescribed by a function of time. It can be any OpenSim Function with valid second order derivatives.-->
-										<prescribed_function />
-										<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
-										<prescribed>false</prescribed>
-									</Coordinate>
-									<Coordinate name="legR_ty">
-										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
-										<motion_type>translational</motion_type>
-										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
-										<default_value>0</default_value>
-										<!--The speed value of this coordinate before any value has been set. Rotational coordinate value is in rad/s and Translational in m/s.-->
-										<default_speed_value>0</default_speed_value>
-										<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
-										<range>-1 2</range>
-										<!--Flag indicating whether or not the values of the coordinates should be limited to the range, above.-->
-										<clamped>false</clamped>
-										<!--Flag indicating whether or not the values of the coordinates should be constrained to the current (e.g. default) value, above.-->
-										<locked>false</locked>
-										<!--If specified, the coordinate can be prescribed by a function of time. It can be any OpenSim Function with valid second order derivatives.-->
-										<prescribed_function />
-										<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
-										<prescribed>false</prescribed>
-									</Coordinate>
-								</objects>
-								<groups />
-							</CoordinateSet>
-							<!--Whether the joint transform defines parent->child or child->parent.-->
-							<reverse>false</reverse>
-							<!--Defines how the child body moves with respect to the parent as a function of the generalized coordinates.-->
-							<SpatialTransform>
-								<!--3 Axes for rotations are listed first.-->
-								<TransformAxis name="rotation1">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates></coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>0 0 1</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<Constant>
-											<value>0</value>
-										</Constant>
-									</function>
-								</TransformAxis>
-								<TransformAxis name="rotation2">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates></coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>1 0 0</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<Constant>
-											<value>0</value>
-										</Constant>
-									</function>
-								</TransformAxis>
-								<TransformAxis name="rotation3">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates></coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>0 1 0</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<Constant>
-											<value>0</value>
-										</Constant>
-									</function>
-								</TransformAxis>
-								<!--3 Axes for translations are listed next.-->
-								<TransformAxis name="translation1">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>legR_tx</coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>1 0 0</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<LinearFunction>
-											<coefficients> 1 0</coefficients>
-										</LinearFunction>
-									</function>
-								</TransformAxis>
-								<TransformAxis name="translation2">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>legR_ty</coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>0 1 0</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<LinearFunction>
-											<coefficients> 1 0</coefficients>
-										</LinearFunction>
-									</function>
-								</TransformAxis>
-								<TransformAxis name="translation3">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates></coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>0 0 1</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<MultiplierFunction>
-											<function>
-												<Constant>
-													<value>0</value>
-												</Constant>
-											</function>
-											<scale>1</scale>
-										</MultiplierFunction>
-									</function>
-								</TransformAxis>
-							</SpatialTransform>
-						</CustomJoint>
-					</Joint>
-					<VisibleObject>
-						<!--Set of geometry files and associated attributes, allow .vtp, .stl, .obj-->
-						<GeometrySet>
-							<objects>
-								<DisplayGeometry>
-									<!--Name of geometry file .vtp, .stl, .obj-->
-									<geometry_file>cylinder.vtp</geometry_file>
-									<!--Color used to display the geometry when visible-->
-									<color> 1 1 1</color>
-									<!--Name of texture file .jpg, .bmp-->
-									<texture_file />
-									<!--in body transform specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
-									<transform> -0 0 -0 0 0 0</transform>
-									<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
-									<scale_factors> 0.15 0.1 0.15</scale_factors>
-									<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded-->
-									<display_preference>1</display_preference>
-									<!--Display opacity between 0.0 and 1.0-->
-									<opacity>1</opacity>
-								</DisplayGeometry>
-							</objects>
-							<groups />
-						</GeometrySet>
-						<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
-						<scale_factors> 1 1 1</scale_factors>
-						<!--transform relative to owner specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
-						<transform> -0 0 -0 0 0 0</transform>
-						<!--Whether to show a coordinate frame-->
-						<show_axes>false</show_axes>
-						<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
-						<display_preference>4</display_preference>
-					</VisibleObject>
-				</Body>
 				<Body name="tibia_r">
 					<mass>3.58100089669871</mass>
 					<mass_center> 0 -0.184557 0</mass_center>
@@ -766,7 +485,7 @@
 										<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
 										<range>-2.0943951 0.17453293</range>
 										<!--Flag indicating whether or not the values of the coordinates should be limited to the range, above.-->
-										<clamped>true</clamped>
+										<clamped>false</clamped>
 										<!--Flag indicating whether or not the values of the coordinates should be constrained to the current (e.g. default) value, above.-->
 										<locked>true</locked>
 										<!--If specified, the coordinate can be prescribed by a function of time. It can be any OpenSim Function with valid second order derivatives.-->
@@ -1237,189 +956,6 @@
 						<objects />
 						<groups />
 					</WrapObjectSet>
-				</Body>
-				<Body name="harness_leg_l">
-					<mass>0.001</mass>
-					<mass_center> -0.0724378 0 0</mass_center>
-					<inertia_xx>1e-006</inertia_xx>
-					<inertia_yy>1e-006</inertia_yy>
-					<inertia_zz>1e-006</inertia_zz>
-					<inertia_xy>1e-006</inertia_xy>
-					<inertia_xz>1e-006</inertia_xz>
-					<inertia_yz>1e-006</inertia_yz>
-					<!--Joint that connects this body with the parent body.-->
-					<Joint>
-						<CustomJoint name="harness_legL_joint">
-							<!--Name of the parent body to which this joint connects its owner body.-->
-							<parent_body>femur_l</parent_body>
-							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
-							<location_in_parent>0.01 -0.2 -0.05</location_in_parent>
-							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
-							<orientation_in_parent>0 0 0</orientation_in_parent>
-							<!--Location of the joint in the child body specified in the child reference frame. For SIMM models, this vector is always the zero vector (i.e., the body reference frame coincides with the joint). -->
-							<location>0 0 0</location>
-							<!--Orientation of the joint in the owing body specified in the owning body reference frame.  Euler XYZ body-fixed rotation angles are used to express the orientation. -->
-							<orientation>0 0 0</orientation>
-							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
-							<CoordinateSet>
-								<objects>
-									<Coordinate name="legL_tx">
-										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
-										<motion_type>translational</motion_type>
-										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
-										<default_value>0</default_value>
-										<!--The speed value of this coordinate before any value has been set. Rotational coordinate value is in rad/s and Translational in m/s.-->
-										<default_speed_value>0</default_speed_value>
-										<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
-										<range>-5 5</range>
-										<!--Flag indicating whether or not the values of the coordinates should be limited to the range, above.-->
-										<clamped>false</clamped>
-										<!--Flag indicating whether or not the values of the coordinates should be constrained to the current (e.g. default) value, above.-->
-										<locked>false</locked>
-										<!--If specified, the coordinate can be prescribed by a function of time. It can be any OpenSim Function with valid second order derivatives.-->
-										<prescribed_function />
-										<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
-										<prescribed>false</prescribed>
-									</Coordinate>
-									<Coordinate name="legL_ty">
-										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
-										<motion_type>translational</motion_type>
-										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
-										<default_value>0</default_value>
-										<!--The speed value of this coordinate before any value has been set. Rotational coordinate value is in rad/s and Translational in m/s.-->
-										<default_speed_value>0</default_speed_value>
-										<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
-										<range>-1 2</range>
-										<!--Flag indicating whether or not the values of the coordinates should be limited to the range, above.-->
-										<clamped>false</clamped>
-										<!--Flag indicating whether or not the values of the coordinates should be constrained to the current (e.g. default) value, above.-->
-										<locked>false</locked>
-										<!--If specified, the coordinate can be prescribed by a function of time. It can be any OpenSim Function with valid second order derivatives.-->
-										<prescribed_function />
-										<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
-										<prescribed>false</prescribed>
-									</Coordinate>
-								</objects>
-								<groups />
-							</CoordinateSet>
-							<!--Whether the joint transform defines parent->child or child->parent.-->
-							<reverse>false</reverse>
-							<!--Defines how the child body moves with respect to the parent as a function of the generalized coordinates.-->
-							<SpatialTransform>
-								<!--3 Axes for rotations are listed first.-->
-								<TransformAxis name="rotation1">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates></coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>0 0 1</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<Constant>
-											<value>0</value>
-										</Constant>
-									</function>
-								</TransformAxis>
-								<TransformAxis name="rotation2">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates></coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>1 0 0</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<Constant>
-											<value>0</value>
-										</Constant>
-									</function>
-								</TransformAxis>
-								<TransformAxis name="rotation3">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates></coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>0 1 0</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<Constant>
-											<value>0</value>
-										</Constant>
-									</function>
-								</TransformAxis>
-								<!--3 Axes for translations are listed next.-->
-								<TransformAxis name="translation1">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>legL_tx</coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>1 0 0</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<LinearFunction>
-											<coefficients> 1 0</coefficients>
-										</LinearFunction>
-									</function>
-								</TransformAxis>
-								<TransformAxis name="translation2">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>legL_ty</coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>0 1 0</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<LinearFunction>
-											<coefficients> 1 0</coefficients>
-										</LinearFunction>
-									</function>
-								</TransformAxis>
-								<TransformAxis name="translation3">
-									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates></coordinates>
-									<!--Rotation or translation axis for the transform.-->
-									<axis>0 0 1</axis>
-									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
-									<function>
-										<MultiplierFunction>
-											<function>
-												<Constant>
-													<value>0</value>
-												</Constant>
-											</function>
-											<scale>1</scale>
-										</MultiplierFunction>
-									</function>
-								</TransformAxis>
-							</SpatialTransform>
-						</CustomJoint>
-					</Joint>
-					<VisibleObject>
-						<!--Set of geometry files and associated attributes, allow .vtp, .stl, .obj-->
-						<GeometrySet>
-							<objects>
-								<DisplayGeometry>
-									<!--Name of geometry file .vtp, .stl, .obj-->
-									<geometry_file>cylinder.vtp</geometry_file>
-									<!--Color used to display the geometry when visible-->
-									<color> 1 1 1</color>
-									<!--Name of texture file .jpg, .bmp-->
-									<texture_file />
-									<!--in body transform specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
-									<transform> -0 0 -0 0 0 0</transform>
-									<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
-									<scale_factors> 0.15 0.1 0.15</scale_factors>
-									<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded-->
-									<display_preference>1</display_preference>
-									<!--Display opacity between 0.0 and 1.0-->
-									<opacity>1</opacity>
-								</DisplayGeometry>
-							</objects>
-							<groups />
-						</GeometrySet>
-						<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
-						<scale_factors> 1 1 1</scale_factors>
-						<!--transform relative to owner specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
-						<transform> -0 0 -0 0 0 0</transform>
-						<!--Whether to show a coordinate frame-->
-						<show_axes>false</show_axes>
-						<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
-						<display_preference>4</display_preference>
-					</VisibleObject>
 				</Body>
 				<Body name="tibia_l">
 					<mass>3.58100089669871</mass>
@@ -1976,6 +1512,112 @@
 						<groups />
 					</WrapObjectSet>
 				</Body>
+				<Body name="harness_shoulder_1">
+					<mass>0.001</mass>
+					<mass_center> -0.0724378 0.1 0.01</mass_center>
+					<inertia_xx>1e-006</inertia_xx>
+					<inertia_yy>1e-006</inertia_yy>
+					<inertia_zz>1e-006</inertia_zz>
+					<inertia_xy>1e-006</inertia_xy>
+					<inertia_xz>1e-006</inertia_xz>
+					<inertia_yz>1e-006</inertia_yz>
+					<!--Joint that connects this body with the parent body.-->
+					<Joint>
+						<SliderJoint>
+							<!--Name of the parent body to which this joint connects its owner body.-->
+							<parent_body>torso</parent_body>
+							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
+							<location_in_parent>-0.025 0.4 0.17</location_in_parent>
+							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
+							<orientation_in_parent>0 0 1.5707963267949</orientation_in_parent>
+							<!--Location of the joint in the child body specified in the child reference frame. For SIMM models, this vector is always the zero vector (i.e., the body reference frame coincides with the joint). -->
+							<location>0 0 0</location>
+							<!--Orientation of the joint in the owing body specified in the owning body reference frame.  Euler XYZ body-fixed rotation angles are used to express the orientation. -->
+							<orientation>0 0 1.5707963267949</orientation>
+							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
+							<CoordinateSet>
+								<objects>
+									<Coordinate name="shoulder1_ty">
+										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
+										<motion_type>translational</motion_type>
+										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
+										<default_value>-2.1595919516779e-013</default_value>
+										<!--The speed value of this coordinate before any value has been set. Rotational coordinate value is in rad/s and Translational in m/s.-->
+										<default_speed_value>0</default_speed_value>
+										<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
+										<range>-10 10</range>
+										<!--Flag indicating whether or not the values of the coordinates should be limited to the range, above.-->
+										<clamped>false</clamped>
+										<!--Flag indicating whether or not the values of the coordinates should be constrained to the current (e.g. default) value, above.-->
+										<locked>false</locked>
+										<!--If specified, the coordinate can be prescribed by a function of time. It can be any OpenSim Function with valid second order derivatives.-->
+										<prescribed_function />
+										<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
+										<prescribed>false</prescribed>
+										<!--Flag identifies whether or not this coordinate can change freely when posing the model to satisfy kinematic constraints.  When true, the coordinate's initial or specified value is ignored when considering constraints. This allows values for important coordinates, which have this flag set to false, to dictate the value of unimportant coordinates if they are linked via constraints.-->
+										<is_free_to_satisfy_constraints>false</is_free_to_satisfy_constraints>
+									</Coordinate>
+								</objects>
+								<groups />
+							</CoordinateSet>
+							<!--Whether the joint transform defines parent->child or child->parent.-->
+							<reverse>false</reverse>
+						</SliderJoint>
+					</Joint>
+				</Body>
+				<Body name="harness_shoulder_2">
+					<mass>0.001</mass>
+					<mass_center> -0.0724378 0.1 0.01</mass_center>
+					<inertia_xx>1e-006</inertia_xx>
+					<inertia_yy>1e-006</inertia_yy>
+					<inertia_zz>1e-006</inertia_zz>
+					<inertia_xy>1e-006</inertia_xy>
+					<inertia_xz>1e-006</inertia_xz>
+					<inertia_yz>1e-006</inertia_yz>
+					<!--Joint that connects this body with the parent body.-->
+					<Joint>
+						<SliderJoint>
+							<!--Name of the parent body to which this joint connects its owner body.-->
+							<parent_body>torso</parent_body>
+							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
+							<location_in_parent>-0.025 0.4 -0.17</location_in_parent>
+							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
+							<orientation_in_parent>0 0 1.5707963267949</orientation_in_parent>
+							<!--Location of the joint in the child body specified in the child reference frame. For SIMM models, this vector is always the zero vector (i.e., the body reference frame coincides with the joint). -->
+							<location>0 0 0</location>
+							<!--Orientation of the joint in the owing body specified in the owning body reference frame.  Euler XYZ body-fixed rotation angles are used to express the orientation. -->
+							<orientation>0 0 1.5707963267949</orientation>
+							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
+							<CoordinateSet>
+								<objects>
+									<Coordinate name="shoulder2_ty">
+										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
+										<motion_type>translational</motion_type>
+										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
+										<default_value>2.1037409036625e-013</default_value>
+										<!--The speed value of this coordinate before any value has been set. Rotational coordinate value is in rad/s and Translational in m/s.-->
+										<default_speed_value>0</default_speed_value>
+										<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
+										<range>-10 10</range>
+										<!--Flag indicating whether or not the values of the coordinates should be limited to the range, above.-->
+										<clamped>false</clamped>
+										<!--Flag indicating whether or not the values of the coordinates should be constrained to the current (e.g. default) value, above.-->
+										<locked>false</locked>
+										<!--If specified, the coordinate can be prescribed by a function of time. It can be any OpenSim Function with valid second order derivatives.-->
+										<prescribed_function />
+										<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
+										<prescribed>false</prescribed>
+										<!--Flag identifies whether or not this coordinate can change freely when posing the model to satisfy kinematic constraints.  When true, the coordinate's initial or specified value is ignored when considering constraints. This allows values for important coordinates, which have this flag set to false, to dictate the value of unimportant coordinates if they are linked via constraints.-->
+										<is_free_to_satisfy_constraints>false</is_free_to_satisfy_constraints>
+									</Coordinate>
+								</objects>
+								<groups />
+							</CoordinateSet>
+							<!--Whether the joint transform defines parent->child or child->parent.-->
+							<reverse>false</reverse>
+						</SliderJoint>
+					</Joint>
+				</Body>
 			</objects>
 			<groups />
 		</BodySet>
@@ -1996,7 +1638,7 @@
 						<PathPointSet>
 							<objects>
 								<PathPoint name="hip1">
-									<location> -0.13 2 0</location>
+									<location> -0.13 -2 0</location>
 									<body>ground</body>
 								</PathPoint>
 								<PathPoint name="harness_hip">
@@ -2031,61 +1673,13 @@
 						<default_color>0.9 0.9 0.9</default_color>
 					</GeometryPath>
 					<!--The resting length (m) of the PathSpring-->
-					<resting_length>1.850108105</resting_length>
+					<resting_length>2.1509302124</resting_length>
 					<!--The linear stiffness (N/m) of the PathSpring-->
 					<stiffness>10000</stiffness>
 					<!--The dissipation factor (s/m) of the PathSpring-->
 					<dissipation>0.7</dissipation>
 				</PathSpring>
-				<SpringGeneralizedForce name="hip_body_right_hor">
-					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
-					<isDisabled>false</isDisabled>
-					<!--Name of the coordinate to which this force is applied.-->
-					<coordinate>hip_tx</coordinate>
-					<!--Spring stiffness.-->
-					<stiffness>10000</stiffness>
-					<!--Coordinate value at which spring produces no force.-->
-					<rest_length>0</rest_length>
-					<!--Damping constant.-->
-					<viscosity>0.1</viscosity>
-				</SpringGeneralizedForce>
-				<SpringGeneralizedForce name="hip_body_right_ver">
-					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
-					<isDisabled>false</isDisabled>
-					<!--Name of the coordinate to which this force is applied.-->
-					<coordinate>hip_ty</coordinate>
-					<!--Spring stiffness.-->
-					<stiffness>10000</stiffness>
-					<!--Coordinate value at which spring produces no force.-->
-					<rest_length>0</rest_length>
-					<!--Damping constant.-->
-					<viscosity>0.1</viscosity>
-				</SpringGeneralizedForce>
-				<SpringGeneralizedForce name="hip_body_left_hor">
-					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
-					<isDisabled>false</isDisabled>
-					<!--Name of the coordinate to which this force is applied.-->
-					<coordinate>hip_tx</coordinate>
-					<!--Spring stiffness.-->
-					<stiffness>10000</stiffness>
-					<!--Coordinate value at which spring produces no force.-->
-					<rest_length>0</rest_length>
-					<!--Damping constant.-->
-					<viscosity>0.1</viscosity>
-				</SpringGeneralizedForce>
-				<SpringGeneralizedForce name="hip_body_left_ver">
-					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
-					<isDisabled>false</isDisabled>
-					<!--Name of the coordinate to which this force is applied.-->
-					<coordinate>hip_ty</coordinate>
-					<!--Spring stiffness.-->
-					<stiffness>10000</stiffness>
-					<!--Coordinate value at which spring produces no force.-->
-					<rest_length>0</rest_length>
-					<!--Damping constant.-->
-					<viscosity>0.1</viscosity>
-				</SpringGeneralizedForce>
-				<PathSpring name="leg_hip_right">
+				<PathSpring name="shoulder_hip_right">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--The GeometryPath defines the set of points and wrapping surfaceinteractions that form the path of action of the PathSpring-->
@@ -2093,13 +1687,13 @@
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="hip">
-									<location> 0.0675622 0 0.136</location>
+								<PathPoint name="hip1">
+									<location> 0 0 0.17</location>
 									<body>harness_hip</body>
 								</PathPoint>
-								<PathPoint name="leg_hor_l">
-									<location> 0 0 0</location>
-									<body>harness_leg_r</body>
+								<PathPoint name="shoulder1">
+									<location> -0 0 0</location>
+									<body>harness_shoulder_1</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2129,13 +1723,13 @@
 						<default_color>0.9 0.9 0.9</default_color>
 					</GeometryPath>
 					<!--The resting length (m) of the PathSpring-->
-					<resting_length>0.4177249778</resting_length>
+					<resting_length>0.33350826222</resting_length>
 					<!--The linear stiffness (N/m) of the PathSpring-->
 					<stiffness>15000</stiffness>
 					<!--The dissipation factor (s/m) of the PathSpring-->
 					<dissipation>0.2</dissipation>
 				</PathSpring>
-				<PathSpring name="leg_hip_left">
+				<PathSpring name="shoulder_hip_left">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--The GeometryPath defines the set of points and wrapping surfaceinteractions that form the path of action of the PathSpring-->
@@ -2143,13 +1737,13 @@
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="hip">
-									<location> 0.0675622 0 -0.136</location>
+								<PathPoint name="hip2">
+									<location> 0 0 -0.17</location>
 									<body>harness_hip</body>
 								</PathPoint>
-								<PathPoint name="leg_hor_l">
-									<location> 0 0 0</location>
-									<body>harness_leg_l</body>
+								<PathPoint name="shoulder2">
+									<location> 0 0 -0</location>
+									<body>harness_shoulder_2</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2179,60 +1773,312 @@
 						<default_color>0.9 0.9 0.9</default_color>
 					</GeometryPath>
 					<!--The resting length (m) of the PathSpring-->
-					<resting_length>0.4177249778</resting_length>
+					<resting_length>0.33350826222</resting_length>
 					<!--The linear stiffness (N/m) of the PathSpring-->
 					<stiffness>15000</stiffness>
 					<!--The dissipation factor (s/m) of the PathSpring-->
 					<dissipation>0.2</dissipation>
 				</PathSpring>
-				<SpringGeneralizedForce name="leg_body_right_hor">
+				<PathSpring name="hip_body_right">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
-					<!--Name of the coordinate to which this force is applied.-->
-					<coordinate>legR_tx</coordinate>
-					<!--Spring stiffness.-->
-					<stiffness>30000</stiffness>
-					<!--Coordinate value at which spring produces no force.-->
-					<rest_length>0</rest_length>
-					<!--Damping constant.-->
-					<viscosity>0.1</viscosity>
-				</SpringGeneralizedForce>
-				<SpringGeneralizedForce name="leg_body_right_ver">
+					<!--The GeometryPath defines the set of points and wrapping surfaceinteractions that form the path of action of the PathSpring-->
+					<GeometryPath>
+						<!--The set of points defining the path-->
+						<PathPointSet>
+							<objects>
+								<PathPoint name="hip_r">
+									<location> 0 -0.2 0.15</location>
+									<body>harness_hip</body>
+								</PathPoint>
+								<PathPoint name="body_r">
+									<location> -0.13 0.2 0.15</location>
+									<body>pelvis</body>
+								</PathPoint>
+							</objects>
+							<groups />
+						</PathPointSet>
+						<!--The wrap objecs that are associated with this path-->
+						<PathWrapSet>
+							<objects />
+							<groups />
+						</PathWrapSet>
+						<!--Used to display the path in the 3D window-->
+						<VisibleObject name="display">
+							<!--Set of geometry files and associated attributes, allow .vtp, .stl, .obj-->
+							<GeometrySet>
+								<objects />
+								<groups />
+							</GeometrySet>
+							<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
+							<scale_factors> 1 1 1</scale_factors>
+							<!--transform relative to owner specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
+							<transform> -0 0 -0 0 0 0</transform>
+							<!--Whether to show a coordinate frame-->
+							<show_axes>true</show_axes>
+							<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
+							<display_preference>4</display_preference>
+						</VisibleObject>
+						<!--Used to initialize the colour cache variable-->
+						<default_color>0.9 0.9 0.9</default_color>
+					</GeometryPath>
+					<!--The resting length (m) of the PathSpring-->
+					<resting_length>0.25</resting_length>
+					<!--The linear stiffness (N/m) of the PathSpring-->
+					<stiffness>10000</stiffness>
+					<!--The dissipation factor (s/m) of the PathSpring-->
+					<dissipation>0.2</dissipation>
+				</PathSpring>
+				<PathSpring name="hip_body_left">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
-					<!--Name of the coordinate to which this force is applied.-->
-					<coordinate>legR_ty</coordinate>
-					<!--Spring stiffness.-->
-					<stiffness>30000</stiffness>
-					<!--Coordinate value at which spring produces no force.-->
-					<rest_length>0</rest_length>
-					<!--Damping constant.-->
-					<viscosity>0.1</viscosity>
-				</SpringGeneralizedForce>
-				<SpringGeneralizedForce name="leg_body_left_hor">
+					<!--The GeometryPath defines the set of points and wrapping surfaceinteractions that form the path of action of the PathSpring-->
+					<GeometryPath>
+						<!--The set of points defining the path-->
+						<PathPointSet>
+							<objects>
+								<PathPoint name="hip_l">
+									<location> 0 -0.2 -0.15</location>
+									<body>harness_hip</body>
+								</PathPoint>
+								<PathPoint name="body_r">
+									<location> -0.13 0.2 -0.15</location>
+									<body>pelvis</body>
+								</PathPoint>
+							</objects>
+							<groups />
+						</PathPointSet>
+						<!--The wrap objecs that are associated with this path-->
+						<PathWrapSet>
+							<objects />
+							<groups />
+						</PathWrapSet>
+						<!--Used to display the path in the 3D window-->
+						<VisibleObject name="display">
+							<!--Set of geometry files and associated attributes, allow .vtp, .stl, .obj-->
+							<GeometrySet>
+								<objects />
+								<groups />
+							</GeometrySet>
+							<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
+							<scale_factors> 1 1 1</scale_factors>
+							<!--transform relative to owner specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
+							<transform> -0 0 -0 0 0 0</transform>
+							<!--Whether to show a coordinate frame-->
+							<show_axes>true</show_axes>
+							<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
+							<display_preference>4</display_preference>
+						</VisibleObject>
+						<!--Used to initialize the colour cache variable-->
+						<default_color>0.9 0.9 0.9</default_color>
+					</GeometryPath>
+					<!--The resting length (m) of the PathSpring-->
+					<resting_length>0.25</resting_length>
+					<!--The linear stiffness (N/m) of the PathSpring-->
+					<stiffness>10000</stiffness>
+					<!--The dissipation factor (s/m) of the PathSpring-->
+					<dissipation>0.2</dissipation>
+				</PathSpring>
+				<PathSpring name="shoulder_body_right">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
-					<!--Name of the coordinate to which this force is applied.-->
-					<coordinate>legL_tx</coordinate>
-					<!--Spring stiffness.-->
+					<!--The GeometryPath defines the set of points and wrapping surfaceinteractions that form the path of action of the PathSpring-->
+					<GeometryPath>
+						<!--The set of points defining the path-->
+						<PathPointSet>
+							<objects>
+								<PathPoint name="shoulder_r">
+									<location> 0 -0.1 0</location>
+									<body>harness_shoulder_1</body>
+								</PathPoint>
+								<PathPoint name="torso_r">
+									<location> -0.025 0.45 0.17</location>
+									<body>torso</body>
+								</PathPoint>
+							</objects>
+							<groups />
+						</PathPointSet>
+						<!--The wrap objecs that are associated with this path-->
+						<PathWrapSet>
+							<objects />
+							<groups />
+						</PathWrapSet>
+						<!--Used to display the path in the 3D window-->
+						<VisibleObject name="display">
+							<!--Set of geometry files and associated attributes, allow .vtp, .stl, .obj-->
+							<GeometrySet>
+								<objects />
+								<groups />
+							</GeometrySet>
+							<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
+							<scale_factors> 1 1 1</scale_factors>
+							<!--transform relative to owner specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
+							<transform> -0 0 -0 0 0 0</transform>
+							<!--Whether to show a coordinate frame-->
+							<show_axes>true</show_axes>
+							<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
+							<display_preference>4</display_preference>
+						</VisibleObject>
+						<!--Used to initialize the colour cache variable-->
+						<default_color>0.9 0.9 0.9</default_color>
+					</GeometryPath>
+					<!--The resting length (m) of the PathSpring-->
+					<resting_length>0.15</resting_length>
+					<!--The linear stiffness (N/m) of the PathSpring-->
 					<stiffness>30000</stiffness>
-					<!--Coordinate value at which spring produces no force.-->
-					<rest_length>0</rest_length>
-					<!--Damping constant.-->
-					<viscosity>0.1</viscosity>
-				</SpringGeneralizedForce>
-				<SpringGeneralizedForce name="leg_body_left_ver">
+					<!--The dissipation factor (s/m) of the PathSpring-->
+					<dissipation>0.2</dissipation>
+				</PathSpring>
+				<PathSpring name="shoulder_body_left">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
-					<!--Name of the coordinate to which this force is applied.-->
-					<coordinate>legL_ty</coordinate>
-					<!--Spring stiffness.-->
+					<!--The GeometryPath defines the set of points and wrapping surfaceinteractions that form the path of action of the PathSpring-->
+					<GeometryPath>
+						<!--The set of points defining the path-->
+						<PathPointSet>
+							<objects>
+								<PathPoint name="shoulder_l">
+									<location> 0 -0.1 0</location>
+									<body>harness_shoulder_2</body>
+								</PathPoint>
+								<PathPoint name="torso_l">
+									<location> -0.025 0.45 -0.17</location>
+									<body>torso</body>
+								</PathPoint>
+							</objects>
+							<groups />
+						</PathPointSet>
+						<!--The wrap objecs that are associated with this path-->
+						<PathWrapSet>
+							<objects />
+							<groups />
+						</PathWrapSet>
+						<!--Used to display the path in the 3D window-->
+						<VisibleObject name="display">
+							<!--Set of geometry files and associated attributes, allow .vtp, .stl, .obj-->
+							<GeometrySet>
+								<objects />
+								<groups />
+							</GeometrySet>
+							<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
+							<scale_factors> 1 1 1</scale_factors>
+							<!--transform relative to owner specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
+							<transform> -0 0 -0 0 0 0</transform>
+							<!--Whether to show a coordinate frame-->
+							<show_axes>true</show_axes>
+							<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
+							<display_preference>4</display_preference>
+						</VisibleObject>
+						<!--Used to initialize the colour cache variable-->
+						<default_color>0.9 0.9 0.9</default_color>
+					</GeometryPath>
+					<!--The resting length (m) of the PathSpring-->
+					<resting_length>0.15</resting_length>
+					<!--The linear stiffness (N/m) of the PathSpring-->
 					<stiffness>30000</stiffness>
-					<!--Coordinate value at which spring produces no force.-->
-					<rest_length>0</rest_length>
-					<!--Damping constant.-->
-					<viscosity>0.1</viscosity>
-				</SpringGeneralizedForce>
+					<!--The dissipation factor (s/m) of the PathSpring-->
+					<dissipation>0.2</dissipation>
+				</PathSpring>
+				<PathActuator name="hip_body_r">
+					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
+					<isDisabled>false</isDisabled>
+					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
+					<min_control>-Inf</min_control>
+					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
+					<max_control>Inf</max_control>
+					<!--The set of points defining the path of the muscle.-->
+					<GeometryPath>
+						<!--The set of points defining the path-->
+						<PathPointSet>
+							<objects>
+								<PathPoint name="hip_right">
+									<location> 0 0 0.15</location>
+									<body>harness_hip</body>
+								</PathPoint>
+								<PathPoint name="body_right">
+									<location> -0.13 0 0.15</location>
+									<body>pelvis</body>
+								</PathPoint>
+							</objects>
+							<groups />
+						</PathPointSet>
+						<!--The wrap objecs that are associated with this path-->
+						<PathWrapSet>
+							<objects />
+							<groups />
+						</PathWrapSet>
+						<!--Used to display the path in the 3D window-->
+						<VisibleObject name="display">
+							<!--Set of geometry files and associated attributes, allow .vtp, .stl, .obj-->
+							<GeometrySet>
+								<objects />
+								<groups />
+							</GeometrySet>
+							<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
+							<scale_factors> 1 1 1</scale_factors>
+							<!--transform relative to owner specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
+							<transform> -0 0 -0 0 0 0</transform>
+							<!--Whether to show a coordinate frame-->
+							<show_axes>false</show_axes>
+							<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
+							<display_preference>4</display_preference>
+						</VisibleObject>
+						<!--Used to initialize the colour cache variable-->
+						<default_color>1 1 1</default_color>
+					</GeometryPath>
+					<!--The maximum force this actuator can produce.-->
+					<optimal_force>100</optimal_force>
+				</PathActuator>
+				<PathActuator name="hip_body_l">
+					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
+					<isDisabled>false</isDisabled>
+					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
+					<min_control>-Inf</min_control>
+					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
+					<max_control>Inf</max_control>
+					<!--The set of points defining the path of the muscle.-->
+					<GeometryPath>
+						<!--The set of points defining the path-->
+						<PathPointSet>
+							<objects>
+								<PathPoint name="hip_left">
+									<location> 0 0 -0.15</location>
+									<body>harness_hip</body>
+								</PathPoint>
+								<PathPoint name="body_left">
+									<location> -0.13 0 -0.15</location>
+									<body>pelvis</body>
+								</PathPoint>
+							</objects>
+							<groups />
+						</PathPointSet>
+						<!--The wrap objecs that are associated with this path-->
+						<PathWrapSet>
+							<objects />
+							<groups />
+						</PathWrapSet>
+						<!--Used to display the path in the 3D window-->
+						<VisibleObject name="display">
+							<!--Set of geometry files and associated attributes, allow .vtp, .stl, .obj-->
+							<GeometrySet>
+								<objects />
+								<groups />
+							</GeometrySet>
+							<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
+							<scale_factors> 1 1 1</scale_factors>
+							<!--transform relative to owner specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
+							<transform> -0 0 -0 0 0 0</transform>
+							<!--Whether to show a coordinate frame-->
+							<show_axes>false</show_axes>
+							<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
+							<display_preference>4</display_preference>
+						</VisibleObject>
+						<!--Used to initialize the colour cache variable-->
+						<default_color>1 1 1</default_color>
+					</GeometryPath>
+					<!--The maximum force this actuator can produce.-->
+					<optimal_force>100</optimal_force>
+				</PathActuator>
 				<CoordinateLimitForce name="hip_limit">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>

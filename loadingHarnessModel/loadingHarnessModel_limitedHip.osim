@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <OpenSimDocument Version="30000">
-	<Model name="loadingHarnessModel">
+	<Model name="unloadingHarnessModel">
 		<credits>A planar reduced gait model with 10 degrees of freedom and 18 muscles by Ajay Seth. Closely based on Delp S.L., Loan J.P., Hoy M.G., Zajac F.E., Topp E.L., Rosen J.M., Thelen D.G., Anderson F.C., Seth A. Notes: 3D, 23 DOF gait model created by D.G. Thelen, Univ. of Wisconsin-Madison, and Ajay Seth, Frank C. Anderson, and Scott L. Delp, Stanford University. Lower extremity joint defintions based on Delp et al. (1990). Low back joint and anthropometry based on Anderson and Pandy (1999, 2001). Planar knee model of Yamaguchi and Zajac (1989). Seth replaced tibia translation constraints with a CustomJoint for the knee and removed the patella to eliminate all kinematic constraints; insertions of the quadrucepts are handled with moving points in the tibia frame as defined by Delp 1990. Number of muscles was reduced by Anderson to improve simulation speed for demonstrations and is not intended to be used in research. License: Creative Commons (CCBY 3.0). You are free to distribute, remix, tweak, and build upon this work, even commercially, as long as you credit us for the original creation. http://creativecommons.org/licenses/by/3.0/ More Information: http://simtk-confluence.stanford.edu:8080/display/OpenSim/Gait+2392+and+2354+Models</credits>
 		<publications>Delp, S.L., Loan, J.P., Hoy, M.G., Zajac, F.E., Topp E.L., Rosen, J.M.: An interactive graphics-based model of the lower extremity to study orthopaedic surgical procedures, IEEE Transactions on Biomedical Engineering, vol. 37, pp. 757-767, 1990. Yamaguchi G.T., Zajac F.E.: A planar model of the knee joint to characterize the knee extensor mechanism." J . Biomech. vol. 22. pp. 1-10. 1989. Anderson F.C., Pandy M.G.: A dynamic optimization solution for vertical jumping in three dimensions. Computer Methods in Biomechanics and Biomedical Engineering 2:201-231, 1999. Anderson F.C., Pandy M.G.: Dynamic optimization of human walking. Journal of Biomechanical Engineering 123:381-390, 2001.</publications>
 		<length_units>meters</length_units>
@@ -1667,7 +1667,7 @@
 							<!--Whether to show a coordinate frame-->
 							<show_axes>true</show_axes>
 							<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
-							<display_preference>0</display_preference>
+							<display_preference>4</display_preference>
 						</VisibleObject>
 						<!--Used to initialize the colour cache variable-->
 						<default_color>0.9 0.9 0.9</default_color>
@@ -1723,7 +1723,7 @@
 						<default_color>0.9 0.9 0.9</default_color>
 					</GeometryPath>
 					<!--The resting length (m) of the PathSpring-->
-					<resting_length>0.3335082622</resting_length>
+					<resting_length>0.33350826222</resting_length>
 					<!--The linear stiffness (N/m) of the PathSpring-->
 					<stiffness>15000</stiffness>
 					<!--The dissipation factor (s/m) of the PathSpring-->
@@ -1773,7 +1773,7 @@
 						<default_color>0.9 0.9 0.9</default_color>
 					</GeometryPath>
 					<!--The resting length (m) of the PathSpring-->
-					<resting_length>0.3335082622</resting_length>
+					<resting_length>0.33350826222</resting_length>
 					<!--The linear stiffness (N/m) of the PathSpring-->
 					<stiffness>15000</stiffness>
 					<!--The dissipation factor (s/m) of the PathSpring-->
@@ -1817,7 +1817,7 @@
 							<!--Whether to show a coordinate frame-->
 							<show_axes>true</show_axes>
 							<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
-							<display_preference>0</display_preference>
+							<display_preference>4</display_preference>
 						</VisibleObject>
 						<!--Used to initialize the colour cache variable-->
 						<default_color>0.9 0.9 0.9</default_color>
@@ -1867,7 +1867,7 @@
 							<!--Whether to show a coordinate frame-->
 							<show_axes>true</show_axes>
 							<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
-							<display_preference>0</display_preference>
+							<display_preference>4</display_preference>
 						</VisibleObject>
 						<!--Used to initialize the colour cache variable-->
 						<default_color>0.9 0.9 0.9</default_color>
@@ -1917,7 +1917,7 @@
 							<!--Whether to show a coordinate frame-->
 							<show_axes>true</show_axes>
 							<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
-							<display_preference>0</display_preference>
+							<display_preference>4</display_preference>
 						</VisibleObject>
 						<!--Used to initialize the colour cache variable-->
 						<default_color>0.9 0.9 0.9</default_color>
@@ -1967,7 +1967,7 @@
 							<!--Whether to show a coordinate frame-->
 							<show_axes>true</show_axes>
 							<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
-							<display_preference>0</display_preference>
+							<display_preference>4</display_preference>
 						</VisibleObject>
 						<!--Used to initialize the colour cache variable-->
 						<default_color>0.9 0.9 0.9</default_color>
@@ -1979,6 +1979,26 @@
 					<!--The dissipation factor (s/m) of the PathSpring-->
 					<dissipation>0.2</dissipation>
 				</PathSpring>
+				<CoordinateLimitForce name="hip_limit">
+					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
+					<isDisabled>false</isDisabled>
+					<!--Coordinate (name) to be limited.-->
+					<coordinate>hip_ty</coordinate>
+					<!--Stiffness of the passive limit force when coordinate exceeds upper limit. Note, rotational stiffness expected in N*m/degree.-->
+					<upper_stiffness>10000000</upper_stiffness>
+					<!--The upper limit of the coordinate range of motion (rotations in degrees).-->
+					<upper_limit>0.15</upper_limit>
+					<!--Stiffness of the passive limit force when coordinate exceeds lower limit. Note, rotational stiffness expected in N*m/degree.-->
+					<lower_stiffness>100</lower_stiffness>
+					<!--The lower limit of the coordinate range of motion (rotations in degrees).-->
+					<lower_limit>-0.2</lower_limit>
+					<!--Damping factor on the coordinate's speed applied only when limit is exceeded. For translational has units N/(m/s) and rotational has Nm/(degree/s)-->
+					<damping>0.001</damping>
+					<!--Transition region width in the units of the coordinate (rotations in degrees). Dictates the transition from zero to constant stiffness as coordinate exceeds its limit.-->
+					<transition>0.1</transition>
+					<!--Option to compute the dissipation energy due to damping in the CoordinateLimitForce. If true the dissipation power is automatically integrated to provide energy. Default is false.-->
+					<compute_dissipation_energy>false</compute_dissipation_energy>
+				</CoordinateLimitForce>
 			</objects>
 			<groups />
 		</ForceSet>

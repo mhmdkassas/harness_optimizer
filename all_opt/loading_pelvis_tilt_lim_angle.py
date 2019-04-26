@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jan 25 15:54:09 2019
+Created on Tue Apr 23 16:38:44 2019
 
 @author: mhmdk
 """
@@ -10,14 +10,16 @@ import math
 from scipy.optimize import minimize
 
 
-model = osim.Model("\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\hangingHarnessModel\hangingHarnessModel.osim")
-model.printToXML("\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\hangingHarnessModel\copy_hangingHarnessModel.osim")
-copy = osim.Model("\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\hangingHarnessModel\copy_hangingHarnessModel.osim")
-frcSet = copy.getForceSet()
+#TODO: ensure correct path for your files
+unloading_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/hangingHarnessModel_lim_hip.osim"
+unloading_copy_path = "C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/copy_hangingHarnessModel_lim_hip.osim"
 
-#all the indices representing the individual forces are
-#dependent on their location in the osim file above
-#MAKE SURE THEY CORRESPOND CORRECTLY
+model = osim.Model(unloading_path)
+    
+model.printToXML(unloading_copy_path)
+copy = osim.Model(unloading_copy_path)
+
+frcSet = copy.getForceSet()
 
 def external_tension(num):
     stiffness = float(num)
@@ -67,7 +69,7 @@ def left_leg_body(num):
     leg_body = osim.PathSpring.safeDownCast(leg_bodyBase)
     
     leg_body.setStiffness(stiffness)
-    
+
 def normalize(arr, arrNorm):
     newArr = [0, 0, 0]
     for i in range(0,3):
@@ -76,32 +78,30 @@ def normalize(arr, arrNorm):
 
 #Bodies
 hip_pelvis = [-0.13, 0.15, 0]
-legR_femurR = [0.01, -0.2, 0.05]
-legL_femurL = [0.01, -0.2, -0.05]
-femurR_pelvis = [-0.072437806, - 0.067724738, 0.085552]
-femurL_pelvis = [-0.072437806, - 0.067724738, -0.085552]
+shR_torso = [-0.025, 0.4, 0.17]
+shL_torso = [-0.025, 0.4, -0.17]
+torso_pelvis = [-0.103175206, 0.08350327, 0]
     
-#PathPoints and PathSprings    
-legR_start = [0.0675622, 0, 0.13552]
-legR_end = [0, 0, 0]
+#PathPoints and PathSprings
+shR_start = [0, 0, 0.17]
+shR_end = [0, 0, 0]
     
-legL_start = [0.0675622, 0, -0.13552]
-legL_end = [0, 0, 0]
+shL_start = [0, 0, -0.17]
+shL_end = [0, 0, 0]
     
 #Makes all the bodies in reference to the pelvis
-legR_pelvis = normalize(arr = legR_femurR, arrNorm = femurR_pelvis)
-legL_pelvis = normalize(arr = legL_femurL, arrNorm = femurL_pelvis)
+shR_pelvis = normalize(arr = shR_torso, arrNorm = torso_pelvis)
+shL_pelvis = normalize(arr = shL_torso, arrNorm = torso_pelvis)
     
-#Makes all the PathPoints and PathSpring in reference to the pelvis    
-legR_start_norm = normalize(arr = legR_start, arrNorm = hip_pelvis)
-legR_end_norm = normalize(arr = legR_end, arrNorm = legR_pelvis)
-legR_strap = (legR_start_norm, legR_end_norm)
+#Makes all the PathPoints and PathSpring in reference to the pelvis
+shR_start_norm = normalize(arr = shR_start, arrNorm = hip_pelvis)
+shR_end_norm = normalize(arr = shR_end, arrNorm = shR_pelvis)
+shR_strap = (shR_start_norm, shR_end_norm)
     
-legL_start_norm = normalize(arr = legL_start, arrNorm = hip_pelvis)
-legL_end_norm = normalize(arr = legL_end, arrNorm = legL_pelvis)
-legL_strap = (legL_start_norm, legL_end_norm)
+shL_start_norm = normalize(arr = shL_start, arrNorm = hip_pelvis)
+shL_end_norm = normalize(arr = shL_end, arrNorm = shL_pelvis)
+shL_strap = (shL_start_norm, shL_end_norm)
 
-lenLegOld = math.fabs(legR_strap[0][1] - legR_strap[1][1])
 
 def angle_shifter(length, tup, angle, s):
     #angle is in radians
@@ -130,8 +130,8 @@ def refactor(arr, arrRef):
 
 def optimizer_callBack(x):
     
-    ks = x[0]*10000
-    angleRad = 0
+    ks = 39810
+    angleRad = x[0]*math.pi/180
     
     copy.initSystem()
     reporter = osim.ForceReporter(copy)
@@ -140,20 +140,20 @@ def optimizer_callBack(x):
     fwd_tool.setModel(copy)
     fwd_tool.setFinalTime(3)
     
-    shifted_strap_right = angle_shifter(length = length_calc(legR_strap), angle = angleRad, s = "r", tup = legR_strap)
-    shifted_strap_left = angle_shifter(length = length_calc(legL_strap), angle = angleRad, s = "l", tup = legL_strap)
+    shifted_strap_right = angle_shifter(length = length_calc(shR_strap), angle = angleRad, s = "r", tup = shR_strap)
+    shifted_strap_left = angle_shifter(length = length_calc(shL_strap), angle = angleRad, s = "l", tup = shL_strap)
     
     len_new = length_calc(shifted_strap_right)
     
     right_start = shifted_strap_right[0]
     right_end = shifted_strap_right[1]
     rs = refactor(arr = right_start, arrRef = hip_pelvis)
-    rE = refactor(arr = right_end, arrRef = legR_pelvis)
+    rE = refactor(arr = right_end, arrRef = shR_pelvis)
     
     left_start = shifted_strap_left[0]
     left_end = shifted_strap_left[1]
     ls = refactor(arr = left_start, arrRef = hip_pelvis)
-    le = refactor(arr = left_end, arrRef = legL_pelvis)
+    le = refactor(arr = left_end, arrRef = shL_pelvis)
     
     vecRs = osim.Vec3(rs[0], rs[1], rs[2])
     vecRe = osim.Vec3(rE[0], rE[1], rE[2])
@@ -188,28 +188,36 @@ def optimizer_callBack(x):
     point_start_l.setLocation(copy.initSystem(), vecLs)
     point_end_l.setLocation(copy.initSystem(), vecLe)
     
-    copy.printToXML("C:\Users\mhmdk\Desktop\Co-op files\co-op semester 1\optimizers_2\hangingHarnessModel\copy_hangingHarnessModel.osim")
-    
-    fwd_tool.run()
-    
-    storage = reporter.getForceStorage()
-    stateVec = storage.getLastStateVector()
-    dataSet = stateVec.getData()
-    force1 = dataSet.get(4)
-    force2 = dataSet.get(6)
-    
-    return  (math.floor(float(force1))-math.floor(float(force2)))**2 
+    copy.printToXML("C:/Users/mhmdk/Desktop/Co-op files/co-op semester 1/optimizers_2/all_opt/copy_hangingHarnessModel_lim_hip.osim")
+
+    angles = [0, 7.5, 15]
+    forces = [(0,0),(0,0),(0,0)]
+    force_lim = [0, 0, 0]
+
+    for i in range(0,3):
+        
+        coord = model.getCoordinateSet()
+        d = coord.get(0)
+        d.set_default_value(angles[i]*math.pi/180)
+        
+        fwd_tool.run()
+        
+        storage = reporter.getForceStorage()
+        stateVec = storage.getLastStateVector()
+        dataSet = stateVec.getData()
+        force1 = dataSet.get(4)
+        force2 = dataSet.get(6)
+        force3 = dataSet.get(8)
+        
+        forces[i] = (force1, force2)
+        force_lim[i] = force3
+    print(forces)
+    return (forces[0][0] - forces[0][1])**2 + (forces[1][0] - forces[1][1])**2 + (forces[2][0] - forces[2][1])**2 + force_lim[0] + force_lim[1] + force_lim[2]
 
 def main():
-    x0 = [1.4]
-    sol = minimize(optimizer_callBack, x0, method = 'Nelder-Mead', tol = 1)
+    x0 = [45]
+    sol = minimize(optimizer_callBack, x0, method = 'Nelder-Mead', tol = 5)
     print(sol)
     
+    
 main()
-    
-    
-    
-    
-    
-    
-    
